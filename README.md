@@ -66,5 +66,5 @@ The application is compatible with all modern browsers including:
 
 ## Links
 
-- [GitHub Repository](https://github.com/Saganaki22/QKQR)
-- [Live Demo](https://saganaki22.github.io/QKQR/)
+- [GitHub Repository](https://github.com/venimk/QR-code-generator)
+- [Live Demo](https://venimk.github.io/QR-code-generator/)
