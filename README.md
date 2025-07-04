@@ -6,7 +6,7 @@
 
 A fast and user-friendly QR code generator web application that allows users to create customizable QR codes for various purposes.
 
-![Deadboy QR Code Generator](https://i.ibb.co/FbK39VNb/og-image.jpg)
+![Deadboy QR Code Generator](./QrCodeGenerator.png)
 
 </div>
 
