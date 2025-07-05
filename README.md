@@ -73,6 +73,7 @@ The application is compatible with all modern browsers including:
 ## 🔗 Links
 
 - <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub"> [GitHub Repository](https://github.com/venimk/QR-code-generator)
+- <img src="https://img.shields.io/badge/Demo-FF5800?style=flat&logo=github-pages&logoColor=white" alt="Demo"> [Live Demo](https://venimk.github.io/-generate-QR-code/)
 
 ---
 
