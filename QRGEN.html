@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#fffff">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Deadboy QR Code Generator">
+    <meta property="og:title" content="Deadboy & VenimK QR Code Generator">
     <meta property="og:description" content="A fast and user-friendly QR code generator web application that allows users to create customizable QR codes for various purposes.">
     <meta property="og:image" content="https://i.ibb.co/FbK39VNb/og-image.jpg">
     <meta property="og:url" content="https://venimk.github.io/QR-code-generator/">
@@ -709,6 +709,69 @@
             color: var(--text-secondary);
         }
         
+        /* Color presets styling */
+        .color-presets {
+            margin-top: 1rem;
+        }
+        
+        .color-presets label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .preset-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .preset-btn {
+            background: none;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            padding: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .preset-btn:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .preset-preview {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contrast-warning {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background-color: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 6px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contrast-warning i {
+            font-size: 1rem;
+        }
+        
         /* Additional button for geocoding */
         #geocode-btn {
             background-color: var(--navy);
@@ -771,6 +834,40 @@
             input, textarea, button, select {
                 font-size: 0.8rem;
             }
+            
+            /* Mobile-optimized color controls */
+            .color-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .color-input-wrapper {
+                padding: 0.75rem;
+            }
+            
+            input[type="color"] {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .preset-buttons {
+                justify-content: center;
+            }
+            
+            .preset-btn {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .preset-preview {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .datetime-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
         }
         
         /* Additional CSS for mobile devices to prevent scrolling issues */
@@ -824,7 +921,7 @@
                     <i class="ph ph-tree"></i>
                 </button>
             </div>
-            <h1 class="logo">Deadboy</h1>
+            <h1 class="logo">Deadboy & VenimK</h1>
             <p class="tagline">Quick & Stylish QR Codes</p>
         </header>
         
@@ -1004,6 +1101,37 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="color-presets">
+                        <label>Quick Presets:</label>
+                        <div class="preset-buttons">
+                            <button type="button" class="preset-btn" data-fg="#000000" data-bg="#ffffff" title="Classic Black on White">
+                                <div class="preset-preview" style="background: #ffffff; border: 1px solid #ddd;">
+                                    <div style="background: #000000; width: 8px; height: 8px; margin: 2px;"></div>
+                                </div>
+                            </button>
+                            <button type="button" class="preset-btn" data-fg="#ffffff" data-bg="#000000" title="White on Black">
+                                <div class="preset-preview" style="background: #000000;">
+                                    <div style="background: #ffffff; width: 8px; height: 8px; margin: 2px;"></div>
+                                </div>
+                            </button>
+                            <button type="button" class="preset-btn" data-fg="#1a365d" data-bg="#e2e8f0" title="Navy on Light Gray">
+                                <div class="preset-preview" style="background: #e2e8f0;">
+                                    <div style="background: #1a365d; width: 8px; height: 8px; margin: 2px;"></div>
+                                </div>
+                            </button>
+                            <button type="button" class="preset-btn" data-fg="#7c2d12" data-bg="#fef3c7" title="Brown on Cream">
+                                <div class="preset-preview" style="background: #fef3c7;">
+                                    <div style="background: #7c2d12; width: 8px; height: 8px; margin: 2px;"></div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="contrast-warning" class="contrast-warning" style="display: none;">
+                        <i class="ph ph-warning"></i>
+                        <span>Low contrast may affect QR code scanning reliability</span>
+                    </div>
                 </div>
                 
                 <div class="resolution-control">
@@ -1038,8 +1166,8 @@
                 </div>
                 
                 <button id="generate-btn">
-                    <i class="ph ph-qr-code"></i>
-                    Generate QR Code
+                    <i class="ph ph-qr-code" id="generate-icon"></i>
+                    <span id="generate-text">Generate QR Code</span>
                 </button>
             </div>
             
@@ -1065,7 +1193,7 @@
         </main>
         
         <footer>
-            <p> 2025 Deadboy All rights reserved.</p>
+            <p> 2025 Deadboy & VenimK  All rights reserved.</p>
         </footer>
     </div>
     
@@ -1385,6 +1513,44 @@
                     });
                 }
                 
+                // Color preset buttons
+                var presetButtons = document.querySelectorAll('.preset-btn');
+                presetButtons.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        var fg = this.getAttribute('data-fg');
+                        var bg = this.getAttribute('data-bg');
+                        
+                        document.getElementById('qr-foreground-color').value = fg;
+                        document.getElementById('qr-background-color').value = bg;
+                        
+                        QR.foregroundColor = fg;
+                        QR.backgroundColor = bg;
+                        
+                        checkColorContrast(fg, bg);
+                        
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                        
+                        showNotification('Color preset applied!');
+                    });
+                });
+                
+                // Enhanced color picker handlers with contrast checking
+                if (foregroundColorPicker) {
+                    foregroundColorPicker.addEventListener('input', function() {
+                        QR.foregroundColor = this.value;
+                        checkColorContrast(QR.foregroundColor, QR.backgroundColor);
+                    });
+                }
+                
+                if (backgroundColorPicker) {
+                    backgroundColorPicker.addEventListener('input', function() {
+                        QR.backgroundColor = this.value;
+                        checkColorContrast(QR.foregroundColor, QR.backgroundColor);
+                    });
+                }
+                
                 // Generate button
                 var generateBtn = document.getElementById('generate-btn');
                 generateBtn.addEventListener('click', generateQR);
@@ -1413,6 +1579,28 @@
                 
                 // Generate initial QR code
                 generateQR();
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', function(e) {
+                    // Ctrl/Cmd + Enter to generate QR code
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                        e.preventDefault();
+                        generateQR();
+                        showNotification('QR Code generated via keyboard shortcut!');
+                    }
+                    
+                    // Ctrl/Cmd + D to download PNG
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'd' && QR.generated) {
+                        e.preventDefault();
+                        downloadPNG();
+                    }
+                    
+                    // Ctrl/Cmd + S to download SVG
+                    if ((e.ctrlKey || e.metaKey) && e.key === 's' && QR.generated) {
+                        e.preventDefault();
+                        downloadSVG();
+                    }
+                });
                 
                 // Download SVG button
                 var downloadSvgBtn = document.getElementById('download-svg');
@@ -1472,6 +1660,17 @@
             // GENERATE QR CODE
             function generateQR() {
                 console.log('Generating QR code...');
+                
+                // Show loading state
+                var generateBtn = document.getElementById('generate-btn');
+                var generateIcon = document.getElementById('generate-icon');
+                var generateText = document.getElementById('generate-text');
+                
+                if (generateBtn && generateIcon && generateText) {
+                    generateBtn.disabled = true;
+                    generateIcon.className = 'ph ph-spinner ph-spin';
+                    generateText.textContent = 'Generating...';
+                }
                 
                 // Check which type is active
                 var activeTab = document.querySelector('.type-btn.active');
@@ -1599,10 +1798,25 @@
                     // Mark as generated
                     QR.generated = true;
                     
+                    // Reset button state
+                    if (generateBtn && generateIcon && generateText) {
+                        generateBtn.disabled = false;
+                        generateIcon.className = 'ph ph-qr-code';
+                        generateText.textContent = 'Generate QR Code';
+                    }
+                    
                     console.log("QR Code generated");
+                    showNotification("QR Code generated successfully!", 2000);
                 } catch (error) {
                     console.error("QR generation error:", error);
                     showNotification("Error: " + error.message);
+                    
+                    // Reset button state on error
+                    if (generateBtn && generateIcon && generateText) {
+                        generateBtn.disabled = false;
+                        generateIcon.className = 'ph ph-qr-code';
+                        generateText.textContent = 'Generate QR Code';
+                    }
                 }
             }
             
@@ -1965,6 +2179,43 @@
                 icalData += 'END:VCALENDAR';
                 
                 return icalData;
+            }
+            
+            // Function to calculate color contrast ratio
+            function getContrastRatio(color1, color2) {
+                function getLuminance(color) {
+                    const rgb = parseInt(color.slice(1), 16);
+                    const r = (rgb >> 16) & 0xff;
+                    const g = (rgb >> 8) & 0xff;
+                    const b = (rgb >> 0) & 0xff;
+                    
+                    const [rs, gs, bs] = [r, g, b].map(c => {
+                        c = c / 255;
+                        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+                    });
+                    
+                    return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+                }
+                
+                const lum1 = getLuminance(color1);
+                const lum2 = getLuminance(color2);
+                const brightest = Math.max(lum1, lum2);
+                const darkest = Math.min(lum1, lum2);
+                
+                return (brightest + 0.05) / (darkest + 0.05);
+            }
+            
+            // Function to check and display contrast warning
+            function checkColorContrast(fg, bg) {
+                const contrastRatio = getContrastRatio(fg, bg);
+                const warningElement = document.getElementById('contrast-warning');
+                
+                // QR codes need high contrast (typically 4.5:1 minimum)
+                if (contrastRatio < 4.5) {
+                    warningElement.style.display = 'flex';
+                } else {
+                    warningElement.style.display = 'none';
+                }
             }
             
             // DOWNLOAD SVG
