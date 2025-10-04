@@ -399,6 +399,7 @@
             width: 100%;
             height: 8px;
             -webkit-appearance: none;
+            -moz-appearance: none;
             appearance: none;
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -409,6 +410,7 @@
         
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
+            -moz-appearance: none;
             appearance: none;
             width: 18px;
             height: 18px;
@@ -605,6 +607,108 @@
             }
         }
         
+        /* Calendar event datetime styling */
+        .datetime-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .datetime-field {
+            flex: 1;
+        }
+        
+        .datetime-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+        
+        input[type="date"]:focus, input[type="time"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2);
+        }
+        
+        /* Color picker styling */
+        .color-controls {
+            margin-top: 1rem;
+        }
+        
+        .color-group {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .color-control {
+            flex: 1;
+        }
+        
+        .color-control label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .color-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0;
+            background: none;
+        }
+        
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+            border: none;
+            border-radius: 6px;
+        }
+        
+        input[type="color"]::-webkit-color-swatch {
+            border: 2px solid var(--border);
+            border-radius: 4px;
+        }
+        
+        .color-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .resolution-control {
+            margin-top: 1rem;
+        }
+        
+        .resolution-control label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
         /* Additional button for geocoding */
         #geocode-btn {
             background-color: var(--navy);
@@ -759,6 +863,10 @@
                         <i class="ph ph-map-pin"></i>
                         <span>Location</span>
                     </button>
+                    <button class="type-btn" data-type="calendar">
+                        <i class="ph ph-calendar"></i>
+                        <span>Calendar</span>
+                    </button>
                 </div>
                 
                 <div class="input-fields">
@@ -833,11 +941,79 @@
                             Use Current Location
                         </button>
                     </div>
+                    
+                    <!-- Calendar Event Input -->
+                    <div class="input-group" id="calendar-input">
+                        <label for="event-title">Event Title *</label>
+                        <input type="text" id="event-title" placeholder="Enter event title" value="Sample Meeting" required>
+                        
+                        <label for="event-description">Description</label>
+                        <textarea id="event-description" placeholder="Enter event description (optional)">This is a sample calendar event created with QR code</textarea>
+                        
+                        <label for="event-location">Location</label>
+                        <input type="text" id="event-location" placeholder="Enter event location (optional)" value="Conference Room A">
+                        
+                        <div class="datetime-group">
+                            <div class="datetime-field">
+                                <label for="event-start-date">Start Date *</label>
+                                <input type="date" id="event-start-date" required>
+                            </div>
+                            <div class="datetime-field">
+                                <label for="event-start-time">Start Time *</label>
+                                <input type="time" id="event-start-time" required>
+                            </div>
+                        </div>
+                        
+                        <div class="datetime-group">
+                            <div class="datetime-field">
+                                <label for="event-end-date">End Date *</label>
+                                <input type="date" id="event-end-date" required>
+                            </div>
+                            <div class="datetime-field">
+                                <label for="event-end-time">End Time *</label>
+                                <input type="time" id="event-end-time" required>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="event-all-day">
+                            <label for="event-all-day">All Day Event</label>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="slider-control">
                     <label for="size-slider">QR Code Size: <span id="size-value">500 x 500</span> px</label>
                     <input type="range" id="size-slider" class="slider" min="200" max="1000" step="100" value="500">
+                </div>
+                
+                <div class="color-controls">
+                    <div class="color-group">
+                        <div class="color-control">
+                            <label for="qr-foreground-color">QR Code Color</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="qr-foreground-color" value="#000000">
+                                <span class="color-label">Foreground</span>
+                            </div>
+                        </div>
+                        <div class="color-control">
+                            <label for="qr-background-color">Background Color</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="qr-background-color" value="#ffffff">
+                                <span class="color-label">Background</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resolution-control">
+                    <label for="resolution-select">Resolution</label>
+                    <select id="resolution-select">
+                        <option value="256">256 x 256 px</option>
+                        <option value="512" selected>512 x 512 px</option>
+                        <option value="1024">1024 x 1024 px</option>
+                        <option value="2048">2048 x 2048 px</option>
+                    </select>
                 </div>
                 
                 <div class="slider-control">
@@ -959,16 +1135,18 @@
             
             // GLOBAL VARIABLES - Accessible throughout the script
             window.QR = {
-                data: '',
+                type: 'url',
                 size: 500,
                 stroke: 0,
                 showOutline: false,
                 invertColors: false,
                 generated: false,
-                svg: null,
+                data: '',
+                pngUrl: null,
                 pngBlob: null,
-                pngUrl: null,  // Store URL for sharing
-                type: 'url',   // Store the current QR type, default to url
+                foregroundColor: '#000000',
+                backgroundColor: '#ffffff',
+                resolution: 512,
                 isTouchDevice: isTouchDevice
             };
             
@@ -1129,6 +1307,84 @@
                     }
                 }
                 
+                // Calendar event all-day toggle
+                var allDayToggle = document.getElementById('event-all-day');
+                if (allDayToggle) {
+                    allDayToggle.addEventListener('change', function() {
+                        var timeInputs = document.querySelectorAll('#event-start-time, #event-end-time');
+                        timeInputs.forEach(function(input) {
+                            input.disabled = this.checked;
+                            if (this.checked) {
+                                input.style.opacity = '0.5';
+                            } else {
+                                input.style.opacity = '1';
+                            }
+                        }.bind(this));
+                        
+                        // Auto-set end date to start date for all-day events
+                        if (this.checked) {
+                            var startDate = document.getElementById('event-start-date').value;
+                            if (startDate) {
+                                document.getElementById('event-end-date').value = startDate;
+                            }
+                        }
+                        
+                        // Regenerate QR if already generated
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
+                // Auto-update end date when start date changes for all-day events
+                var startDateInput = document.getElementById('event-start-date');
+                if (startDateInput) {
+                    startDateInput.addEventListener('change', function() {
+                        if (document.getElementById('event-all-day').checked) {
+                            document.getElementById('event-end-date').value = this.value;
+                        }
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
+                // Color picker event handlers
+                var foregroundColorPicker = document.getElementById('qr-foreground-color');
+                var backgroundColorPicker = document.getElementById('qr-background-color');
+                
+                if (foregroundColorPicker) {
+                    foregroundColorPicker.addEventListener('change', function() {
+                        QR.foregroundColor = this.value;
+                        console.log('Foreground color changed to:', QR.foregroundColor);
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
+                if (backgroundColorPicker) {
+                    backgroundColorPicker.addEventListener('change', function() {
+                        QR.backgroundColor = this.value;
+                        console.log('Background color changed to:', QR.backgroundColor);
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
+                // Resolution selector event handler
+                var resolutionSelect = document.getElementById('resolution-select');
+                if (resolutionSelect) {
+                    resolutionSelect.addEventListener('change', function() {
+                        QR.resolution = parseInt(this.value);
+                        console.log('Resolution changed to:', QR.resolution + 'x' + QR.resolution);
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
                 // Generate button
                 var generateBtn = document.getElementById('generate-btn');
                 generateBtn.addEventListener('click', generateQR);
@@ -1137,10 +1393,28 @@
                     generateQR();
                 });
                 
+                // Set default calendar dates
+                var today = new Date();
+                var tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                
+                var startDateInput = document.getElementById('event-start-date');
+                var endDateInput = document.getElementById('event-end-date');
+                var startTimeInput = document.getElementById('event-start-time');
+                var endTimeInput = document.getElementById('event-end-time');
+                
+                if (startDateInput) startDateInput.value = tomorrow.toISOString().split('T')[0];
+                if (endDateInput) endDateInput.value = tomorrow.toISOString().split('T')[0];
+                if (startTimeInput) startTimeInput.value = '14:00';
+                if (endTimeInput) endTimeInput.value = '15:00';
+                
                 // Add live generation to all input fields
                 addLiveGenerationListeners();
                 
-                // Download buttons
+                // Generate initial QR code
+                generateQR();
+                
+                // Download SVG button
                 var downloadSvgBtn = document.getElementById('download-svg');
                 downloadSvgBtn.addEventListener('click', downloadSVG);
                 downloadSvgBtn.addEventListener('touchend', function(e) {
@@ -1239,6 +1513,14 @@
                         data = 'WIFI:S:Sample Network;T:WPA;P:password;H:false;';
                     } else if (QR.type === 'location') {
                         data = 'geo:40.7128,-74.0060';
+                    } else if (QR.type === 'calendar') {
+                        // Default calendar event
+                        const tomorrow = new Date();
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        const dateStr = tomorrow.toISOString().split('T')[0];
+                        const timeStr = '12:00';
+                        
+                        data = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Deadboy//QR Code Generator//EN\nBEGIN:VEVENT\nUID:sample-${Date.now()}@deadboy.qr\nDTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}\nSUMMARY:Sample Event\nDTSTART:${(dateStr + 'T' + timeStr).replace(/[-:]/g, '').replace(/\.\d{3}/, '')}Z\nDTEND:${(dateStr + 'T13:00').replace(/[-:]/g, '').replace(/\.\d{3}/, '')}Z\nDESCRIPTION:This is a sample calendar event\nLOCATION:Sample Location\nSTATUS:CONFIRMED\nSEQUENCE:0\nEND:VEVENT\nEND:VCALENDAR`;
                     } else {
                         // Default fallback
                         data = 'https://example.com';
@@ -1261,19 +1543,20 @@
                 QR.pngBlob = null;
                 
                 try {
-                    // Create new QR code
+                    // Create new QR code with custom colors
                     var qrcode = new QRCode(qrContainer, {
                         text: data,
-                        width: 230,
-                        height: 230,
-                        colorDark: QR.invertColors ? "#000000" : "#FFFFFF",
-                        colorLight: QR.invertColors ? "#FFFFFF" : "#000000",
+                        width: QR.resolution,
+                        height: QR.resolution,
+                        colorDark: QR.invertColors ? QR.backgroundColor : QR.foregroundColor,
+                        colorLight: QR.invertColors ? QR.foregroundColor : QR.backgroundColor,
                         correctLevel: QRCode.CorrectLevel.H
                     });
                     
                     // Log the QR code creation with colors
-                    console.log("%c QR Code colors - Dark: " + (QR.invertColors ? "#000000" : "#FFFFFF") + 
-                               ", Light: " + (QR.invertColors ? "#FFFFFF" : "#000000"),
+                    console.log("%c QR Code colors - Dark: " + (QR.invertColors ? QR.backgroundColor : QR.foregroundColor) + 
+                               ", Light: " + (QR.invertColors ? QR.foregroundColor : QR.backgroundColor) + 
+                               ", Resolution: " + QR.resolution + "x" + QR.resolution,
                                "background: #333; color: #00ff00; font-size: 14px;");
                     
                     // Create a container for the QR code
@@ -1604,9 +1887,84 @@
                         const location = document.getElementById('location').value.trim();
                         data = `geo:${location}`;
                         break;
+                        
+                    case 'calendar':
+                        data = generateCalendarData();
+                        break;
                 }
                 
                 return data;
+            }
+            
+            // Function to generate calendar event data in iCalendar format
+            function generateCalendarData() {
+                const title = document.getElementById('event-title').value.trim();
+                const description = document.getElementById('event-description').value.trim();
+                const eventLocation = document.getElementById('event-location').value.trim();
+                const startDate = document.getElementById('event-start-date').value;
+                const startTime = document.getElementById('event-start-time').value;
+                const endDate = document.getElementById('event-end-date').value;
+                const endTime = document.getElementById('event-end-time').value;
+                const allDay = document.getElementById('event-all-day').checked;
+                
+                if (!title || !startDate || !endDate) {
+                    return '';
+                }
+                
+                // Generate unique ID
+                const uid = 'qkqr-' + Date.now() + '@deadboy.qr';
+                
+                // Format dates for iCalendar (YYYYMMDDTHHMMSSZ)
+                function formatDateTime(date, time, isAllDay = false) {
+                    if (isAllDay) {
+                        return date.replace(/-/g, '');
+                    }
+                    const dateTime = new Date(date + 'T' + (time || '00:00'));
+                    return dateTime.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+                }
+                
+                const dtStart = allDay ? 
+                    formatDateTime(startDate, null, true) :
+                    formatDateTime(startDate, startTime);
+                const dtEnd = allDay ? 
+                    formatDateTime(endDate, null, true) :
+                    formatDateTime(endDate, endTime);
+                
+                const now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+                
+                // Build iCalendar data
+                let icalData = 'BEGIN:VCALENDAR\n';
+                icalData += 'VERSION:2.0\n';
+                icalData += 'PRODID:-//Deadboy//QR Code Generator//EN\n';
+                icalData += 'BEGIN:VEVENT\n';
+                icalData += `UID:${uid}\n`;
+                icalData += `DTSTAMP:${now}\n`;
+                icalData += `CREATED:${now}\n`;
+                icalData += `LAST-MODIFIED:${now}\n`;
+                icalData += `SUMMARY:${title}\n`;
+                
+                if (allDay) {
+                    icalData += `DTSTART;VALUE=DATE:${dtStart}\n`;
+                    icalData += `DTEND;VALUE=DATE:${dtEnd}\n`;
+                } else {
+                    icalData += `DTSTART:${dtStart}\n`;
+                    icalData += `DTEND:${dtEnd}\n`;
+                }
+                
+                if (description) {
+                    icalData += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
+                }
+                
+                if (eventLocation) {
+                    icalData += `LOCATION:${eventLocation}\n`;
+                }
+                
+                icalData += 'STATUS:CONFIRMED\n';
+                icalData += 'SEQUENCE:0\n';
+                icalData += 'END:VEVENT\n';
+                icalData += 'END:VCALENDAR';
+                
+                return icalData;
             }
             
             // DOWNLOAD SVG
