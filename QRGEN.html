@@ -550,6 +550,11 @@
             border-radius: 0 !important; /* Ensure no rounded corners for QR */
         }
         
+        /* QR Code Container Base Class */
+        .qr-code-container {
+            transition: all 0.3s ease;
+        }
+        
         /* Download buttons */
         .download-options {
             display: flex;
@@ -754,6 +759,17 @@
         }
         
         .resolution-control label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .template-control {
+            margin-top: 1rem;
+        }
+        
+        .template-control label {
             display: block;
             margin-bottom: 0.5rem;
             font-size: 0.85rem;
@@ -1194,6 +1210,20 @@
                     </div>
                 </div>
                 
+                <div class="template-control">
+                    <label for="template-select">QR Code Template</label>
+                    <select id="template-select">
+                        <option value="classic" selected>Classic</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="circular">Circular</option>
+                        <option value="diamond">Diamond</option>
+                        <option value="frame">Frame</option>
+                        <option value="gradient">Gradient</option>
+                        <option value="pattern">Pattern</option>
+                        <option value="modern">Modern</option>
+                    </select>
+                </div>
+                
                 <div class="resolution-control">
                     <label for="resolution-select">Resolution</label>
                     <select id="resolution-select">
@@ -1335,6 +1365,7 @@
                 foregroundColor: '#000000',
                 backgroundColor: '#ffffff',
                 resolution: 512,
+                template: 'classic',
                 isTouchDevice: isTouchDevice
             };
             
@@ -1567,6 +1598,18 @@
                     resolutionSelect.addEventListener('change', function() {
                         QR.resolution = parseInt(this.value);
                         console.log('Resolution changed to:', QR.resolution + 'x' + QR.resolution);
+                        if (QR.generated) {
+                            generateQR();
+                        }
+                    });
+                }
+                
+                // Template selector event handler
+                var templateSelect = document.getElementById('template-select');
+                if (templateSelect) {
+                    templateSelect.addEventListener('change', function() {
+                        QR.template = this.value;
+                        console.log('Template changed to:', QR.template);
                         if (QR.generated) {
                             generateQR();
                         }
@@ -2035,7 +2078,59 @@
                     qrDiv.appendChild(outlineElement);
                 }
                 
+                // Apply template styling
+                applyTemplateToQR(qrContainer, qrSize);
+                
                 console.log("Applied styles - Stroke:", QR.stroke, "Outline:", QR.showOutline);
+            }
+            
+            // APPLY TEMPLATE TO QR PREVIEW
+            function applyTemplateToQR(qrContainer, qrSize) {
+                // Remove any existing template classes
+                qrContainer.className = 'qr-code-container';
+                qrContainer.classList.add('template-' + QR.template);
+                
+                // Apply template-specific styling
+                switch(QR.template) {
+                    case 'rounded':
+                        qrContainer.style.borderRadius = '12px';
+                        qrContainer.style.overflow = 'hidden';
+                        break;
+                    case 'circular':
+                        qrContainer.style.borderRadius = '50%';
+                        qrContainer.style.overflow = 'hidden';
+                        break;
+                    case 'diamond':
+                        qrContainer.style.transform = 'rotate(45deg)';
+                        qrContainer.style.borderRadius = '8px';
+                        break;
+                    case 'frame':
+                        qrContainer.style.boxShadow = '0 0 0 8px ' + (QR.invertColors ? '#000000' : '#FFFFFF') + ', 0 0 0 16px ' + (QR.invertColors ? '#FFFFFF' : '#000000');
+                        break;
+                    case 'gradient':
+                        var gradientColor = QR.invertColors ? '#666666' : '#CCCCCC';
+                        qrContainer.style.background = 'linear-gradient(135deg, transparent 0%, ' + gradientColor + ' 50%, transparent 100%)';
+                        break;
+                    case 'pattern':
+                        qrContainer.style.backgroundImage = 'radial-gradient(circle at 25% 25%, rgba(0,0,0,0.1) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 2px, transparent 2px)';
+                        qrContainer.style.backgroundSize = '20px 20px';
+                        break;
+                    case 'modern':
+                        qrContainer.style.borderRadius = '16px';
+                        qrContainer.style.boxShadow = '0 8px 32px rgba(0,0,0,0.3)';
+                        break;
+                    case 'classic':
+                    default:
+                        qrContainer.style.borderRadius = '0';
+                        qrContainer.style.overflow = 'visible';
+                        qrContainer.style.transform = 'none';
+                        qrContainer.style.boxShadow = 'none';
+                        qrContainer.style.background = 'transparent';
+                        qrContainer.style.backgroundImage = 'none';
+                        break;
+                }
+                
+                console.log("Applied template:", QR.template);
             }
             
             // Function to setup live generation for active input fields
@@ -2054,7 +2149,8 @@
                     // Skip inputs that don't affect QR code (like theme buttons)
                     if (input.id === 'invert-toggle' || 
                         input.classList.contains('theme-btn') || 
-                        input.classList.contains('type-btn')) {
+                        input.classList.contains('type-btn') ||
+                        input.id === 'template-select') {
                         return;
                     }
                     

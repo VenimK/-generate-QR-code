@@ -2,7 +2,7 @@
 
 # 🔳 Deadboy & VenimK QR Code Generator 🔲
 
-<img src="https://img.shields.io/badge/version-2.1.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/version-2.2.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
 
 A fast, feature-rich, and user-friendly QR code generator web application with advanced customization options, calendar event support, and professional-grade color management.
 
@@ -32,6 +32,15 @@ A fast, feature-rich, and user-friendly QR code generator web application with a
 - **Stroke Width**: Customizable border thickness (0-13%)
 - **Outline Toggle**: Add or remove black outline around the QR code
 - **Color Inversion**: Swap foreground and background colors
+- **🎨 QR Code Templates**: 8 different visual styles for your QR codes - **NEW!**
+  - **Classic**: Standard square QR code (default)
+  - **Rounded**: QR code with rounded corners and modules
+  - **Circular**: Perfect circle QR code with rounded modules
+  - **Diamond**: Diamond-shaped QR code rotated 45 degrees
+  - **Frame**: QR code with decorative double border frame
+  - **Gradient**: QR code with subtle gradient background
+  - **Pattern**: QR code with dot pattern overlay
+  - **Modern**: QR code with modern rounded corners and shadow
 
 ### 🌈 Multiple Themes
 - Dark Orange (Default)
@@ -56,6 +65,7 @@ A fast, feature-rich, and user-friendly QR code generator web application with a
 2. **Enter Information**: Fill in the required fields (auto-validation included)
 3. **Customize Appearance**: 
    - Choose colors using the color pickers or presets
+   - Select QR code template (Classic, Rounded, Circular, Diamond, Frame, Gradient, Pattern, Modern)
    - Select resolution (256px to 2048px)
    - Adjust size, stroke, and outline options
 4. **Generate**: Click "Generate QR Code" or use `Ctrl/Cmd + Enter`
@@ -104,6 +114,11 @@ The application is compatible with all modern browsers including:
 - 📱 **Enhanced Mobile UX**: Improved touch interactions and responsiveness
 - 🔄 **Live Preview**: Real-time updates as you type and customize
 - 🚀 **Performance**: Faster generation and better error handling
+
+### v2.2.0 - QR Code Templates Update 🎨
+- 🎨 **QR Code Templates**: 8 different visual styles (Classic, Rounded, Circular, Diamond, Frame, Gradient, Pattern, Modern)
+- 📱 **Enhanced Customization**: More options for creating unique QR code designs
+- 🔧 **Template System**: Real-time template switching with smooth transitions
 
 ### v2.1.0 - Festive Themes Update 🎉
 - 🎃 **Halloween Theme**: Spooky purple and orange theme for Halloween celebrations
