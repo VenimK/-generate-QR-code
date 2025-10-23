@@ -2,7 +2,7 @@
 
 # 🔳 Deadboy & VenimK QR Code Generator 🔲
 
-<img src="https://img.shields.io/badge/version-2.2.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/version-2.3.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
 
 A fast, feature-rich, and user-friendly QR code generator web application with advanced customization options, calendar event support, and professional-grade color management.
 
@@ -32,15 +32,15 @@ A fast, feature-rich, and user-friendly QR code generator web application with a
 - **Stroke Width**: Customizable border thickness (0-13%)
 - **Outline Toggle**: Add or remove black outline around the QR code
 - **Color Inversion**: Swap foreground and background colors
-- **🎨 QR Code Templates**: 8 different visual styles for your QR codes - **NEW!**
+- **🎨 QR Code Templates**: 8 festive holiday-themed visual styles - **NEW!**
   - **Classic**: Standard square QR code (default)
-  - **Rounded**: QR code with rounded corners and modules
-  - **Circular**: Perfect circle QR code with rounded modules
-  - **Diamond**: Diamond-shaped QR code rotated 45 degrees
-  - **Frame**: QR code with decorative double border frame
-  - **Gradient**: QR code with subtle gradient background
-  - **Pattern**: QR code with dot pattern overlay
-  - **Modern**: QR code with modern rounded corners and shadow
+  - **🎄 Christmas**: Circular green gradient with red and gold decorative borders
+  - **🎃 Halloween**: Rounded orange-red gradient with spooky shadow and slight rotation
+  - **🎆 New Year**: Blue gradient with glowing effect and fireworks-inspired styling
+  - **🥚 Easter**: Circular yellow-orange gradient with colorful Easter egg borders
+  - **💝 Valentine's Day**: Pink-red gradient with romantic heart-themed styling
+  - **☘️ St. Patrick's Day**: Green gradient with lucky clover-inspired glow
+  - **🎂 Birthday**: Golden gradient with celebratory tilt and festive colors
 
 ### 🌈 Multiple Themes
 - Dark Orange (Default)
@@ -65,7 +65,7 @@ A fast, feature-rich, and user-friendly QR code generator web application with a
 2. **Enter Information**: Fill in the required fields (auto-validation included)
 3. **Customize Appearance**: 
    - Choose colors using the color pickers or presets
-   - Select QR code template (Classic, Rounded, Circular, Diamond, Frame, Gradient, Pattern, Modern)
+   - Select QR code template (Classic, Christmas 🎄, Halloween 🎃, New Year 🎆, Easter 🥚, Valentine's Day 💝, St. Patrick's Day ☘️, Birthday 🎂)
    - Select resolution (256px to 2048px)
    - Adjust size, stroke, and outline options
 4. **Generate**: Click "Generate QR Code" or use `Ctrl/Cmd + Enter`
@@ -115,12 +115,15 @@ The application is compatible with all modern browsers including:
 - 🔄 **Live Preview**: Real-time updates as you type and customize
 - 🚀 **Performance**: Faster generation and better error handling
 
+### v2.3.0 - Holiday Templates Update 🎄
+- 🎨 **Holiday QR Code Templates**: 8 festive holiday-themed templates (Christmas 🎄, Halloween 🎃, New Year 🎆, Easter 🥚, Valentine's Day 💝, St. Patrick's Day ☘️, Birthday 🎂)
+- 🎭 **Themed Visual Effects**: Each template includes unique styling with gradients, shadows, and festive colors
+- 🎉 **Holiday-Specific Styling**: Templates feature appropriate shapes, colors, and effects for each holiday
+
 ### v2.2.0 - QR Code Templates Update 🎨
 - 🎨 **QR Code Templates**: 8 different visual styles (Classic, Rounded, Circular, Diamond, Frame, Gradient, Pattern, Modern)
 - 📱 **Enhanced Customization**: More options for creating unique QR code designs
 - 🔧 **Template System**: Real-time template switching with smooth transitions
-
-### v2.1.0 - Festive Themes Update 🎉
 - 🎃 **Halloween Theme**: Spooky purple and orange theme for Halloween celebrations
 - 🎄 **Christmas Theme**: Festive red and blue theme with winter colors
 - 🎆 **New Year Theme**: Golden and navy theme for New Year's events
