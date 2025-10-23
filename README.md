@@ -2,7 +2,7 @@
 
 # 🔳 Deadboy & VenimK QR Code Generator 🔲
 
-<img src="https://img.shields.io/badge/version-2.0.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/version-2.1.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-Custom-green.svg" alt="License"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
 
 A fast, feature-rich, and user-friendly QR code generator web application with advanced customization options, calendar event support, and professional-grade color management.
 
@@ -39,6 +39,9 @@ A fast, feature-rich, and user-friendly QR code generator web application with a
 - Neon
 - Midnight
 - Forest
+- **Halloween** 🎃 - Spooky purple and orange theme perfect for Halloween events
+- **Christmas** 🎄 - Festive red and blue theme with winter colors
+- **New Year** 🎆 - Golden and navy theme for New Year's celebrations
 
 ### 💾 Export & Sharing Options
 - **Download as PNG**: High-quality raster format with custom resolution
@@ -101,6 +104,11 @@ The application is compatible with all modern browsers including:
 - 📱 **Enhanced Mobile UX**: Improved touch interactions and responsiveness
 - 🔄 **Live Preview**: Real-time updates as you type and customize
 - 🚀 **Performance**: Faster generation and better error handling
+
+### v2.1.0 - Festive Themes Update 🎉
+- 🎃 **Halloween Theme**: Spooky purple and orange theme for Halloween celebrations
+- 🎄 **Christmas Theme**: Festive red and blue theme with winter colors
+- 🎆 **New Year Theme**: Golden and navy theme for New Year's events
 
 ## 📄 License
 

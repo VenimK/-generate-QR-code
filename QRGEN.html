@@ -110,6 +110,42 @@
             --border: #3E5F41;
         }
         
+        /* Halloween Theme */
+        [data-theme="halloween"] {
+            --primary: #FF6B35;
+            --secondary: #1A0D2E;
+            --secondary-dark: #0F0519;
+            --text: #FFFFFF;
+            --text-secondary: #FFB347;
+            --background: #0F0519;
+            --card-bg: #1A0D2E;
+            --border: #FF6B35;
+        }
+        
+        /* Christmas Theme */
+        [data-theme="christmas"] {
+            --primary: #E53E3E;
+            --secondary: #2D3748;
+            --secondary-dark: #1A202C;
+            --text: #FFFFFF;
+            --text-secondary: #90CDF4;
+            --background: #1A202C;
+            --card-bg: #2D3748;
+            --border: #E53E3E;
+        }
+        
+        /* New Year Theme */
+        [data-theme="newyear"] {
+            --primary: #FFD700;
+            --secondary: #1A365D;
+            --secondary-dark: #0F2557;
+            --text: #FFFFFF;
+            --text-secondary: #FFD700;
+            --background: #0F2557;
+            --card-bg: #1A365D;
+            --border: #FFD700;
+        }
+        
         /* Reset and base styles */
         * {
             margin: 0;
@@ -243,6 +279,21 @@
         .theme-forest {
             background: #1B2A1E;
             color: #4CAF50;
+        }
+        
+        .theme-halloween {
+            background: #0F0519;
+            color: #FF6B35;
+        }
+        
+        .theme-christmas {
+            background: #1A202C;
+            color: #E53E3E;
+        }
+        
+        .theme-newyear {
+            background: #0F2557;
+            color: #FFD700;
         }
         
         .logo {
@@ -919,6 +970,15 @@
                 </button>
                 <button class="theme-btn theme-forest" data-theme="forest" title="Forest Theme">
                     <i class="ph ph-tree"></i>
+                </button>
+                <button class="theme-btn theme-halloween" data-theme="halloween" title="Halloween Theme">
+                    <i class="ph ph-ghost"></i>
+                </button>
+                <button class="theme-btn theme-christmas" data-theme="christmas" title="Christmas Theme">
+                    <i class="ph ph-tree-evergreen"></i>
+                </button>
+                <button class="theme-btn theme-newyear" data-theme="newyear" title="New Year Theme">
+                    <i class="ph ph-fireworks"></i>
                 </button>
             </div>
             <h1 class="logo">Deadboy & VenimK</h1>
